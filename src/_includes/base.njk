@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "Kristina Nokuri's Website" }}</title>
+    
+    <script>
+        tailwind = {
+            config: {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: { sans: ['Inter', 'sans-serif'] },
+                        colors: {
+                            macBlue: '#009DDC',
+                            macPurple: '#963D97',
+                            macRed: '#E03A3E',
+                            macOrange: '#F5821F',
+                            macGreen: '#61BB46',
+                            macYellow: '#FDB827',
+                            blog: '#009DDC',
+                            events: '#963D97',
+                            projects: '#E03A3E',
+                            platinumBeige: '#E9E6DF',
+                            charcoalBlack: '#0D0D0E',
+                            darkLink: '#4fa3f7',
+                            lightLink: '#0066CC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="/style.css">
+    
+    <script src="/script.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen selection:bg-macPurple/30 selection:text-white bg-platinumBeige dark:bg-charcoalBlack text-stone-800 dark:text-gray-300 transition-colors duration-300">
+
+    <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
+            <header>
+                <h1 class="text-3xl md:text-4xl font-extrabold italic text-stone-900 dark:text-white tracking-tight">
+                    <a href="/" class="hover:opacity-90 transition-opacity">kristina nokuri's website</a>
+                </h1>
+                <div class="flex h-1.5 w-36 mt-3 rounded-full overflow-hidden shadow-sm">
+                    <div class="bg-macBlue h-full w-1/6"></div>
+                    <div class="bg-macPurple h-full w-1/6"></div>
+                    <div class="bg-macRed h-full w-1/6"></div>
+                    <div class="bg-macOrange h-full w-1/6"></div>
+                    <div class="bg-macGreen h-full w-1/6"></div>
+                    <div class="bg-macYellow h-full w-1/6"></div>
+                </div>
+            </header>
+
+            <button id="theme-toggle" style="font-family: Arial, Helvetica, sans-serif;" class="flex items-center space-x-2 px-3 py-1.5 rounded border border-stone-400 dark:border-stone-700 bg-stone-200/50 dark:bg-stone-900/80 hover:bg-stone-300/60 dark:hover:bg-stone-800 text-xs shadow-sm" aria-label="Toggle system color mode">
+                <span class="w-2.5 h-2.5 rounded-full bg-macRed inline-block" id="status-led"></span>
+                <span class="font-normal text-stone-700 dark:text-gray-300" id="toggle-label">light</span>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+            
+            <main class="md:col-span-8 space-y-6 order-2 md:order-1">
+
+                <nav class="mb-6 flex items-center gap-2 text-xs font-mono">
+                    <a href="/" class="text-stone-500 dark:text-stone-400 hover:underline">← back to home</a> 
+                </nav>
+
+                {% if title %}
+                <header class="border-b border-dashed border-stone-300 dark:border-stone-800 pb-4 mb-6">
+                    <h1 class="text-2xl md:text-3xl font-bold text-stone-900 dark:text-white tracking-tight">
+                        {{ title }}
+                    </h1>
+                    {% if date %}
+                        <p class="text-xs font-mono text-stone-500 dark:text-stone-400 mt-2">
+                            published: {{ date }}
+                        </p>
+                    {% endif %}
+                </header>
+                {% endif %}
+
+                <article class="prose dark:prose-invert max-w-none text-sm leading-relaxed space-y-4">
+                    {{ content | safe }}
+                </article>
+
+                <footer class="pt-8 text-xs text-stone-600 dark:text-stone-500 font-mono border-t border-dashed border-stone-300 dark:border-stone-800 mt-12">
+                    <a href="/" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">home.</a>
+                    <a href="/#/projects" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">projects.</a>
+                    <a href="/#/blog" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">blog.</a>
+                    <a href="/#/events" class="hover:text-macBlue dark:hover:text-white underline">events.</a>
+                </footer>
+
+            </main>
+
+            <div class="md:col-span-4 flex justify-center md:justify-end order-1 md:order-2 py-4 md:py-0 sticky md:top-20">
+                <div class="macintosh-orb-container w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-macPurple/15 dark:shadow-macPurple/5 border border-stone-300 dark:border-stone-800">
+                    <img 
+                        id="orb-image" 
+                        src="https://placehold.co/256x256/E9E6DF/963D97?text=placeholder" 
+                        alt="Profile orb" 
+                        class="w-full h-full object-cover transition-opacity duration-300"
+                        onerror="this.src='https://placehold.co/256x256/333333/ffffff?text=Orb+Image'"
+                    />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

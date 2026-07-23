@@ -1,1 +1,26 @@
-node_modules
+# 11ty Build Output
+_site/
+
+# Dependency Folders
+node_modules/
+
+# Local Environment Variables & Secrets
+.env
+.env.local
+*.env
+
+# Operating System & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Package Manager Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 11ty / Cache files
+.cache/
+.11ty-site/

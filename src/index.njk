@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristina Nokuri's Website</title>
+    
+    <script>
+        tailwind = {
+            config: {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'sans-serif'],
+                        },
+                        colors: {
+                            // Macintosh II (1987) Palette
+                            macBlue: '#009DDC',
+                            macPurple: '#963D97',
+                            macRed: '#E03A3E',
+                            macOrange: '#F5821F',
+                            macGreen: '#61BB46',
+                            macYellow: '#FDB827',
+                            
+                            // Category Mappings
+                            blog: '#009DDC',      // Mac Blue
+                            events: '#963D97',    // Mac Purple
+                            projects: '#E03A3E',  // Mac Red
+
+                            // Custom background systems
+                            platinumBeige: '#E9E6DF', // Macintosh II warm case beige
+                            charcoalBlack: '#0D0D0E', // Sleek dark slate
+                            
+                            // Actionable Link colors
+                            darkLink: '#4fa3f7',
+                            lightLink: '#0066CC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght=0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="/script.js" defer></script>
+</head>
+<body class="font-sans antialiased min-h-screen selection:bg-macPurple/30 selection:text-white bg-platinumBeige dark:bg-charcoalBlack text-stone-800 dark:text-gray-300 transition-colors duration-300">
+
+    <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
+            <header>
+                <h1 class="text-3xl md:text-4xl font-extrabold italic text-stone-900 dark:text-white tracking-tight">
+                    <a href="/" class="hover:opacity-90 transition-opacity">kristina nokuri's website</a>
+                </h1>
+                <div class="flex h-1.5 w-36 mt-3 rounded-full overflow-hidden shadow-sm">
+                    <div class="bg-macBlue h-full w-1/6"></div>
+                    <div class="bg-macPurple h-full w-1/6"></div>
+                    <div class="bg-macRed h-full w-1/6"></div>
+                    <div class="bg-macOrange h-full w-1/6"></div>
+                    <div class="bg-macGreen h-full w-1/6"></div>
+                    <div class="bg-macYellow h-full w-1/6"></div>
+                </div>
+            </header>
+
+            <button id="theme-toggle" style="font-family: Arial, Helvetica, sans-serif;" class="flex items-center space-x-2 px-3 py-1.5 rounded border border-stone-400 dark:border-stone-700 bg-stone-200/50 dark:bg-stone-900/80 hover:bg-stone-300/60 dark:hover:bg-stone-800 text-xs shadow-sm" aria-label="Toggle system color mode">
+                <span class="w-2.5 h-2.5 rounded-full bg-macRed inline-block" id="status-led"></span>
+                <span class="font-normal text-stone-700 dark:text-gray-300" id="toggle-label">light</span>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+            
+            <main class="md:col-span-8 space-y-10 order-2 md:order-1">
+
+                <nav id="back-to-home" class="hidden mb-6 flex items-center gap-2 text-xs font-mono">
+                    <a href="/" class="text-stone-500 dark:text-stone-400 hover:underline">home</a> 
+                    <span class="text-stone-400 dark:text-stone-600">/</span> 
+                    <span class="text-stone-900 dark:text-white font-semibold uppercase" id="current-page-label">category</span>
+                </nav>
+                
+                <section id="about-section" class="space-y-4 max-w-xl border-b border-dashed border-stone-300 dark:border-stone-800 pb-8">
+                    <p class="text-sm text-stone-600 dark:text-gray-400 leading-relaxed">
+                        I'm a software developer specializing in backend systems, with a passion for bridging computer science with other fields. 
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono">
+                        <span class="text-stone-500 dark:text-stone-500 uppercase tracking-wider font-semibold">connect:</span>
+                        <a href="mailto:knokuri@gmail.com" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">knokuri@gmail.com</a>
+                        <span class="text-stone-400 dark:text-stone-600">·</span>
+                        <a href="https://github.com/krisaan" target="_blank" rel="noopener noreferrer" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">github</a>
+                        <span class="text-stone-400 dark:text-stone-600">·</span>
+                        <a href="https://www.linkedin.com/in/kristina-nokuri/" target="_blank" rel="noopener noreferrer" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">linkedin</a>
+                        <span class="text-stone-400 dark:text-stone-600">·</span>
+                        <a href="#" download class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors font-bold flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-macOrange inline-block animate-pulse"></span>
+                            resume [pdf]
+                        </a>
+                    </div>
+                </section>
+
+                <section id="section-projects" class="space-y-3 transition-opacity duration-200">
+                    <a href="/projects/" class="group inline-flex items-center gap-2">
+                        <h2 class="text-xl font-bold text-projects lowercase group-hover:underline decoration-2 underline-offset-4 transition-all">
+                            projects
+                        </h2>
+                        <span class="text-lg md:text-xl font-mono font-extrabold leading-none text-projects group-hover:translate-x-1.5 transition-transform">→</span>
+                    </a>
+                    <div class="list-bracket text-projects/40 dark:text-projects/30">
+                        <ul class="space-y-2 text-sm">
+                            {% for item in collections.projects %}
+                                {% if item.data.featured %}
+                                    <li class="leading-relaxed">
+                                        <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
+                                        {% if item.data.date %}
+                                            <span class="text-stone-500 dark:text-stone-500 italic">({{ item.data.date }})</span> 
+                                            <span class="text-stone-400 dark:text-stone-600">·</span>
+                                        {% endif %}
+                                        <strong class="text-projects font-semibold">projects</strong> 
+                                        {% if item.data.tech %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400 italic">{{ item.data.tech }}</span> 
+                                        {% endif %}
+                                        {% if item.data.summary %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400">{{ item.data.summary }}</span>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="section-blog" class="space-y-3 transition-opacity duration-200">
+                    <a href="/blog/" class="group inline-flex items-center gap-2">
+                        <h2 class="text-xl font-bold text-blog lowercase group-hover:underline decoration-2 underline-offset-4 transition-all">
+                            blog
+                        </h2>
+                        <span class="text-lg md:text-xl font-mono font-extrabold leading-none text-blog group-hover:translate-x-1.5 transition-transform">→</span>
+                    </a>
+                    <div class="list-bracket text-blog/40 dark:text-blog/30">
+                        <ul class="space-y-2 text-sm">
+                            {% for item in collections.blog %}
+                                {% if item.data.featured %}
+                                    <li class="leading-relaxed">
+                                        <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
+                                        {% if item.data.date %}
+                                            <span class="text-stone-500 dark:text-stone-500 italic">({{ item.data.date }})</span> 
+                                            <span class="text-stone-400 dark:text-stone-600">·</span>
+                                        {% endif %}
+                                        <strong class="text-blog font-semibold">blog</strong> 
+                                        {% if item.data.category %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400 italic">{{ item.data.category }}</span> 
+                                        {% endif %}
+                                        {% if item.data.summary %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400">{{ item.data.summary }}</span>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="section-events" class="space-y-3 transition-opacity duration-200">
+                    <a href="/events/" class="group inline-flex items-center gap-2">
+                        <h2 class="text-xl font-bold text-events lowercase group-hover:underline decoration-2 underline-offset-4 transition-all">
+                            events
+                        </h2>
+                        <span class="text-lg md:text-xl font-mono font-extrabold leading-none text-events group-hover:translate-x-1.5 transition-transform">→</span>
+                    </a>
+                    <div class="list-bracket text-events/40 dark:text-events/30">
+                        <ul class="space-y-2 text-sm">
+                            {% for item in collections.events %}
+                                {% if item.data.featured %}
+                                    <li class="leading-relaxed">
+                                        <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
+                                        {% if item.data.date %}
+                                            <span class="text-stone-500 dark:text-stone-500 italic">({{ item.data.date }})</span> 
+                                            <span class="text-stone-400 dark:text-stone-600">·</span>
+                                        {% endif %}
+                                        <strong class="text-events font-semibold">events</strong> 
+                                        {% if item.data.category %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400 italic">{{ item.data.category }}</span> 
+                                        {% endif %}
+                                        {% if item.data.summary %}
+                                            <span class="text-stone-400 dark:text-stone-600">·</span> 
+                                            <span class="text-stone-600 dark:text-gray-400">{{ item.data.summary }}</span>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+
+                <footer class="pt-8 text-xs text-stone-600 dark:text-stone-500 font-mono border-t border-dashed border-stone-300 dark:border-stone-800">
+                    <a href="/" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">home.</a>
+                    <a href="/projects/" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">projects.</a>
+                    <a href="/blog/" class="hover:text-macBlue dark:hover:text-white underline mr-1.5">blog.</a>
+                    <a href="/events/" class="hover:text-macBlue dark:hover:text-white underline">events.</a>
+                </footer>
+
+            </main>
+
+            <div class="md:col-span-4 flex justify-center md:justify-end order-1 md:order-2 py-4 md:py-0 sticky md:top-20">
+                <div class="macintosh-orb-container w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-macPurple/15 dark:shadow-macPurple/5 border border-stone-300 dark:border-stone-800">
+                    <img 
+                        id="orb-image" 
+                        src="https://placehold.co/256x256/E9E6DF/963D97?text=placeholder" 
+                        alt="Profile placeholder orb" 
+                        class="w-full h-full object-cover transition-opacity duration-300"
+                        onerror="this.src='https://placehold.co/256x256/333333/ffffff?text=Orb+Image'"
+                    />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

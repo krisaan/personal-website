@@ -1,0 +1,43 @@
+/* Custom CSS Extensions & Retro Styling */
+
+/* Retro color transitions */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom CSS for Retro bracket decorations.
+   These mimic the subtle colored left brackets enclosing the lists.
+*/
+.list-bracket {
+    position: relative;
+    border-left: 1.5px solid currentColor;
+    padding-left: 1rem;
+    margin-left: 0.15rem;
+}
+
+.list-bracket::before,
+.list-bracket::after {
+    content: '';
+    position: absolute;
+    left: -1.5px;
+    width: 5px;
+    height: 1.5px;
+    background-color: currentColor;
+}
+
+.list-bracket::before {
+    top: 0;
+}
+
+.list-bracket::after {
+    bottom: 0;
+}
+
+/* Hover styling for the placeholder orb container */
+.macintosh-orb-container {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.macintosh-orb-container:hover {
+    transform: scale(1.05) rotate(5deg);
+}

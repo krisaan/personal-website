@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: "All Projects"
+---
+
+<section class="space-y-4">
+    <h1 class="text-2xl font-bold text-projects lowercase">all projects</h1>
+    <div class="list-bracket text-projects/40 dark:text-projects/30">
+        <ul class="space-y-3 text-sm">
+            {% for item in collections.projects %}
+                <li class="leading-relaxed">
+                    <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors font-semibold">
+                        {{ item.data.title }}
+                    </a> 
+                    {% if item.data.date %}
+                        <span class="text-stone-500 italic">({{ item.data.date }})</span>
+                    {% endif %}
+                    {% if item.data.tech %}
+                        <span class="text-stone-400">·</span> 
+                        <span class="text-stone-600 dark:text-gray-400 italic">{{ item.data.tech }}</span>
+                    {% endif %}
+                    {% if item.data.summary %}
+                        <span class="text-stone-400">·</span> 
+                        <span class="text-stone-600 dark:text-gray-400">{{ item.data.summary }}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
