@@ -1,43 +1,8 @@
-// Macintosh II Theme Configuration for Tailwind
-tailwind.config = {
-    darkMode: 'class',
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-                // Macintosh II (1987) Palette
-                macBlue: '#009DDC',
-                macPurple: '#963D97',
-                macRed: '#E03A3E',
-                macOrange: '#F5821F',
-                macGreen: '#61BB46',
-                macYellow: '#FDB827',
-
-                // Category Mappings
-                blog: '#009DDC',      // Mac Blue
-                events: '#963D97',    // Mac Purple
-                projects: '#E03A3E',  // Mac Red
-
-                // Custom background systems
-                platinumBeige: '#E9E6DF', // Macintosh II warm case beige
-                charcoalBlack: '#0D0D0E', // Sleek dark slate
-
-                // Actionable Link colors matching light/dark contrast needs
-                darkLink: '#4fa3f7',
-                lightLink: '#0066CC'
-            }
-        }
-    }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const statusLed = document.getElementById('status-led');
     const toggleLabel = document.getElementById('toggle-label');
     const htmlElement = document.documentElement;
-    const orbImage = document.getElementById('orb-image');
 
     // Theme management (defaulting to Platinum / Light mode)
     const savedTheme = localStorage.getItem('theme');
@@ -68,15 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isDark) {
             if (toggleLabel) toggleLabel.textContent = 'dark';
             if (statusLed) statusLed.style.backgroundColor = '#61BB46'; // Classic Green LED
-            if (orbImage) {
-                orbImage.src = 'https://placehold.co/256x256/0D0D0E/963D97?text=placeholder';
-            }
         } else {
             if (toggleLabel) toggleLabel.textContent = 'light';
             if (statusLed) statusLed.style.backgroundColor = '#E03A3E'; // Retro red/orange warning LED
-            if (orbImage) {
-                orbImage.src = 'https://placehold.co/256x256/E9E6DF/963D97?text=placeholder';
-            }
         }
     }
 
@@ -106,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeCategory = hash.substring(2); // e.g. "blog"
             if (categories.includes(activeCategory)) {
                 // Hide about section
-                if (aboutSection) aboutSection.classList.add('hidden');
+                if (aboutSection) aboutSection.classList.remove('hidden');
                 // Show retro back navigation
                 if (backBtnNav) backBtnNav.classList.remove('hidden');
                 if (pageLabel) pageLabel.textContent = activeCategory;
