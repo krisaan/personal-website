@@ -1,13 +1,15 @@
 module.exports = function (eleventyConfig) {
-    // Tell 11ty to COPY script.js and style.css as raw static files, not process them as templates!
+    // Tell Eleventy to copy the assets folder straight to the _site directory
+    eleventyConfig.addPassthroughCopy("src/assets");
+
+    // Your other configurations (e.g., passthrough for script.js, style.css, etc.)
     eleventyConfig.addPassthroughCopy("src/script.js");
     eleventyConfig.addPassthroughCopy("src/style.css");
 
     return {
         dir: {
             input: "src",
-            output: "_site",
-            includes: "_includes"
+            output: "_site"
         }
     };
 };

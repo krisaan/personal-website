@@ -99,7 +99,7 @@
                         <span class="text-stone-400 dark:text-stone-600">·</span>
                         <a href="https://www.linkedin.com/in/kristina-nokuri/" target="_blank" rel="noopener noreferrer" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">linkedin</a>
                         <span class="text-stone-400 dark:text-stone-600">·</span>
-                        <a href="#" download class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors font-bold flex items-center gap-1">
+                        <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors font-bold flex items-center gap-1">
                             <span class="w-2 h-2 rounded-full bg-macOrange inline-block animate-pulse"></span>
                             resume [pdf]
                         </a>
@@ -115,7 +115,7 @@
                     </a>
                     <div class="list-bracket text-projects/40 dark:text-projects/30">
                         <ul class="space-y-2 text-sm">
-                            {% for item in collections.projects %}
+                            {% for item in collections.projects | sort(attribute="data.order") %}
                                 {% if item.data.featured %}
                                     <li class="leading-relaxed">
                                         <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
@@ -148,7 +148,7 @@
                     </a>
                     <div class="list-bracket text-blog/40 dark:text-blog/30">
                         <ul class="space-y-2 text-sm">
-                            {% for item in collections.blog %}
+                            {% for item in collections.blog | sort(attribute="data.order") %}
                                 {% if item.data.featured %}
                                     <li class="leading-relaxed">
                                         <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
@@ -181,7 +181,7 @@
                     </a>
                     <div class="list-bracket text-events/40 dark:text-events/30">
                         <ul class="space-y-2 text-sm">
-                            {% for item in collections.events %}
+                            {% for item in collections.events | sort(attribute="data.order") %}
                                 {% if item.data.featured %}
                                     <li class="leading-relaxed">
                                         <a href="{{ item.url }}" class="text-lightLink dark:text-darkLink underline hover:text-opacity-80 transition-colors">{{ item.data.title }}</a> 
@@ -218,10 +218,9 @@
                 <div class="macintosh-orb-container w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg shadow-macPurple/15 dark:shadow-macPurple/5 border border-stone-300 dark:border-stone-800">
                     <img 
                         id="orb-image" 
-                        src="https://placehold.co/256x256/E9E6DF/963D97?text=placeholder" 
-                        alt="Profile placeholder orb" 
-                        class="w-full h-full object-cover transition-opacity duration-300"
-                        onerror="this.src='https://placehold.co/256x256/333333/ffffff?text=Orb+Image'"
+                        src="/assets/orb.jpeg" 
+                        alt="Kristina Nokuri" 
+                        class="w-full h-full object-cover rounded-full aspect-square transition-opacity duration-300"
                     />
                 </div>
             </div>
